@@ -1,13 +1,18 @@
-// src/app/services/appointmentsService.ts
+import api from "./api";
+import { User } from "./userService";
+import { Clinic } from "./clinicServices";
 
-export async function getAppointments() {
-  const response = await fetch("http://localhost:8080/api/appointments", {
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    throw new Error("Error al obtener citas");
-  }
-
-  return response.json();
+export interface Appointment {
+  id?: number;
+  nombre: string;
+  correo: string;
+  fecha: string;  // ISO format: "2025-10-04"
+  hora: string;   // "14:00:00"
+  medico: string;
+  user?: User;
+  clinic?: Clinic;
 }
+
+export const appointmentService = {
+  getAll: async (): Promise<Appointment[]> => (await api.get("/appointments")).data,
+};
