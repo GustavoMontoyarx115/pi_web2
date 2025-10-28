@@ -1,15 +1,6 @@
 // src/services/userService.ts
 import api from "./api";
-
-export interface User {
-  id?: number;
-  nombre: string;
-  email: string;
-  password: string;
-  tipoDocumento: string;
-  numeroDocumento: string;
-  rol: "PACIENTE" | "MEDICO" | "ADMIN";
-}
+import { User } from "../types/user"; // Asegúrate que esta ruta sea correcta
 
 export const userService = {
   // 🔹 Obtener todos los usuarios
@@ -30,20 +21,23 @@ export const userService = {
     return response.data;
   },
 
-  // 🔹 Actualizar usuario existente
+  // 🔹 Actualizar un usuario existente
   update: async (id: number, user: User): Promise<User> => {
     const response = await api.put(`/api/users/${id}`, user);
     return response.data;
   },
 
-  // 🔹 Eliminar usuario
+  // 🔹 Eliminar un usuario
   delete: async (id: number): Promise<void> => {
     await api.delete(`/api/users/${id}`);
   },
 
-  // 🔹 Iniciar sesión (opcional)
+  // 🔹 Iniciar sesión
   login: async (email: string, password: string): Promise<User> => {
     const response = await api.post("/api/users/login", { email, password });
     return response.data;
   },
 };
+
+// ✅ Exporta también el tipo para que otros archivos puedan usarlo
+export type { User };
