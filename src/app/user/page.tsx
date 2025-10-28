@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function UserLoginPage() {
   const [email, setEmail] = useState("");
@@ -52,12 +53,14 @@ export default function UserLoginPage() {
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             Inicia Sesión
           </h1>
-          <p className="text-gray-500">
-            ¿Aún no tienes cuenta?{" "}
-            <a href="/register" className="text-blue-500 font-semibold">
-              Crear cuenta
-            </a>
-          </p>
+          <Button
+  variant="link"
+  className="text-blue-500 font-semibold"
+  onClick={() => router.push("/user/new")}
+>
+  Crear cuenta
+</Button>
+
         </div>
 
         {/* 🔐 Formulario */}
@@ -94,9 +97,14 @@ export default function UserLoginPage() {
             Iniciar Sesión
           </button>
 
-          <p className="text-center text-sm text-gray-500 mt-4 hover:text-blue-500 cursor-pointer">
-            ¿Olvidaste tu contraseña?
-          </p>
+          <Button
+  variant="link"
+  className="w-full text-blue-600 mt-2 hover:underline"
+  onClick={() => router.push(`/user/1/change-password`)}
+>
+  ¿Olvidaste tu contraseña?
+</Button>
+
         </form>
       </div>
 

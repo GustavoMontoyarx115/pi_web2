@@ -1,0 +1,26 @@
+{
+  "root": true,
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "off",
+    "react/no-unescaped-entities": "off"
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["classnames", "clsx", "ctl"],
+      "config": "tailwind.config.js",
+      "cssFiles": [
+        "*/.css",
+        "!**/node_modules",
+        "!*/."
+      ],
+      "removeDuplicates": true
+    }
+  }
+}
