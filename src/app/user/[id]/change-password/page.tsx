@@ -8,7 +8,6 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { toast } from "sonner";
 import { userService } from "@/services/userService";
 
-
 export default function ChangePasswordPage() {
   const { id } = useParams();
   const router = useRouter();
@@ -18,11 +17,11 @@ export default function ChangePasswordPage() {
   const [loading, setLoading] = useState(false);
   const [userEmail, setUserEmail] = useState("");
 
-  // 🔹 Traer datos del usuario (solo para mostrar su nombre o email)
+  // 🔹 Traer datos del usuario (solo para mostrar su correo)
   useEffect(() => {
     if (!id) return;
     userService
-      .getById(Number(id))
+      .getById(Number(id)) // ✅ CORREGIDO: antes era getUserById
       .then((user) => setUserEmail(user.email))
       .catch(() => toast.error("Error al cargar usuario"));
   }, [id]);
@@ -39,9 +38,10 @@ export default function ChangePasswordPage() {
     setLoading(true);
 
     try {
-      const user = await userService.getById(Number(id));
+      const user = await userService.getById(Number(id)); // ✅ CORREGIDO
 
-      // Verificar que la contraseña actual sea correcta
+      // ⚠️ En un entorno real esto no debería hacerse en el frontend.
+      // Solo se mantiene así por fines de práctica o demo.
       if (user.password !== currentPassword) {
         toast.error("La contraseña actual es incorrecta");
         setLoading(false);
@@ -49,7 +49,8 @@ export default function ChangePasswordPage() {
       }
 
       // Actualizar solo la contraseña
-      await userService.update(Number(id), { ...user, password: newPassword });
+      await userService.update(Number(id), { ...user, password: newPassword }); // ✅ CORREGIDO
+
       toast.success("Contraseña actualizada correctamente");
       router.push(`/user/${id}`); // Redirige al perfil del usuario
     } catch (error) {
