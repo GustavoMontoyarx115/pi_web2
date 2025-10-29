@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { userService, User } from "@/services/userService"; // ✅ agrega User aquí
+import { userService } from "@/services/userService";
+import type { User } from "@/types/user";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -17,6 +18,7 @@ export default function UserDetailPage() {
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
   const [formData, setFormData] = useState<User>({
+    id: userId,
     nombre: "",
     email: "",
     password: "",
@@ -30,8 +32,8 @@ export default function UserDetailPage() {
     const fetchUser = async () => {
       try {
         const data = await userService.getById(userId);
-        setUser(data as User); // 👈 asegura tipo
-        setFormData(data as User);
+        setUser(data);
+        setFormData(data);
       } catch (error) {
         console.error(error);
         toast.error("Error al cargar el usuario");
@@ -43,7 +45,7 @@ export default function UserDetailPage() {
     if (userId) fetchUser();
   }, [userId]);
 
-  // 🔹 Manejar cambios
+  // 🔹 Manejar cambios en los inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,

@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "outline" | "destructive" | "link"; // 👈 agregamos "link"
+  variant?: "default" | "outline" | "destructive";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -16,7 +16,6 @@ export const Button: React.FC<ButtonProps> = ({
     default: "bg-blue-600 text-white hover:bg-blue-700",
     outline: "border border-gray-400 text-gray-700 hover:bg-gray-100",
     destructive: "bg-red-600 text-white hover:bg-red-700",
-    link: "text-blue-500 hover:underline bg-transparent p-0", // 👈 nuevo estilo para link
   };
 
   return (
