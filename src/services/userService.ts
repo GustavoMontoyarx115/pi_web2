@@ -1,9 +1,9 @@
 // src/services/userService.ts
 import api from "./api";
 
-// 👇 Exportamos correctamente la interfaz
+
 export interface User {
-  id?: number;
+  id?: number; // 🔹 opcional: así sirve tanto para crear como para editar
   nombre: string;
   email: string;
   password: string;
@@ -12,7 +12,7 @@ export interface User {
   rol: "PACIENTE" | "MEDICO" | "ADMIN";
 }
 
-// 👇 Exportamos el objeto userService con todas las funciones CRUD
+
 export const userService = {
   async getAll(): Promise<User[]> {
     const response = await api.get("/users");
