@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { userService } from "@/services/userService";
-import type { User } from "@/types/user";
+import { userService, User } from "@/services/userService"; // ✅ agrega User aquí
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
