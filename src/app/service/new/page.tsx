@@ -38,61 +38,64 @@ export default function NewServicePage() {
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold text-sky-700 mb-4">
-        Crear nuevo servicio
-      </h1>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-blue-50 to-white px-4">
+      <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-lg border border-gray-200">
+        <h1 className="text-3xl font-bold text-sky-700 mb-6 text-center">
+          Crear Nuevo Servicio
+        </h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4 max-w-lg">
-        <input
-          type="text"
-          placeholder="Título"
-          value={titulo}
-          onChange={(e) => setTitulo(e.target.value)}
-          required
-          className="border p-2 w-full rounded"
-        />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            placeholder="Título del servicio"
+            value={titulo}
+            onChange={(e) => setTitulo(e.target.value)}
+            required
+            className="border border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
 
-        <textarea
-          placeholder="Descripción"
-          value={descripcion}
-          onChange={(e) => setDescripcion(e.target.value)}
-          required
-          className="border p-2 w-full rounded"
-        />
+          <textarea
+            placeholder="Descripción del servicio"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+            required
+            rows={4}
+            className="border border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
 
-        <input
-          type="text"
-          placeholder="URL de imagen"
-          value={imagen}
-          onChange={(e) => setImagen(e.target.value)}
-          className="border p-2 w-full rounded"
-        />
+          <input
+            type="text"
+            placeholder="URL de la imagen"
+            value={imagen}
+            onChange={(e) => setImagen(e.target.value)}
+            className="border border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
 
-        <input
-          type="text"
-          placeholder="Texto alternativo (alt)"
-          value={alt}
-          onChange={(e) => setAlt(e.target.value)}
-          className="border p-2 w-full rounded"
-        />
+          <input
+            type="text"
+            placeholder="Texto alternativo (alt)"
+            value={alt}
+            onChange={(e) => setAlt(e.target.value)}
+            className="border border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
 
-        <input
-          type="number"
-          placeholder="ID de la clínica"
-          value={clinicId}
-          onChange={(e) => setClinicId(e.target.value)}
-          required
-          className="border p-2 w-full rounded"
-        />
+          <input
+            type="number"
+            placeholder="ID de la clínica"
+            value={clinicId}
+            onChange={(e) => setClinicId(e.target.value)}
+            required
+            className="border border-gray-300 p-3 w-full rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+          />
 
-        <button
-          type="submit"
-          className="bg-sky-600 text-white px-4 py-2 rounded hover:bg-sky-700"
-        >
-          Guardar servicio
-        </button>
-      </form>
+          <button
+            type="submit"
+            className="w-full bg-sky-600 text-white py-3 rounded-lg font-semibold hover:bg-sky-700 transition"
+          >
+            Guardar servicio
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
