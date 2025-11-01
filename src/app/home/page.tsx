@@ -6,9 +6,9 @@ export default function ClinicPage() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images = [
-    "/images/derma1.jpg",
-    "/images/derma2.jpg",
-    "/images/derma3.jpg",
+    "https://hips.hearstapps.com/hmg-prod/images/clinica-imema-interior-16-1654787717.jpg?resize=980:*",
+    "https://dermatologia.pe/wp-content/uploads/2023/12/Cuales-son-las-mejores-clinicas-dermatologicas-en-Trujillo-1024x683.jpg",
+    "https://dermatologia.pe/wp-content/uploads/2024/01/mejores-clinicas-dermatologicas-en-Arequipa.jpg",
   ];
 
   // Carrusel automático
@@ -93,7 +93,7 @@ export default function ClinicPage() {
           Nuestro Equipo de Trabajo
         </h2>
         <img
-          src="/images/equipo.jpg"
+          src="https://media.istockphoto.com/id/513438487/es/foto/m%C3%A9dicos-y-enfermeras-sonriendo-en-el-pasillo-del-hospital.jpg?s=612x612&w=0&k=20&c=HGXqwVl0lpGAe-XTGf1zs8u7jbzy2-_CfOdcZrdpiM8="
           alt="Equipo médico"
           className="mx-auto w-3/4 max-w-3xl rounded-2xl shadow-md mb-10"
         />
@@ -145,6 +145,12 @@ export default function ClinicPage() {
               horario: "Lunes a Sábado: 8:00 AM - 5:00 PM",
               mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.056186084562!2d-74.10498022504993!3d4.610353342195878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f995cf67d87c3%3A0x9a38e24f1b05483d!2sRestrepo%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1696040128354!5m2!1ses!2sco",
             },
+            {
+              nombre: "Clínica del norte",
+              direccion: "Av. Caracas #70-20, Cali",
+              horario: "Lunes a Sábado: 8:00 AM - 5:00 PM",
+              mapa: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.056186084562!2d-74.10498022504993!3d4.610353342195878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f995cf67d87c3%3A0x9a38e24f1b05483d!2sRestrepo%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1696040128354!5m2!1ses!2sco",
+            }
           ].map((clinica, index) => (
             <div
               key={index}
